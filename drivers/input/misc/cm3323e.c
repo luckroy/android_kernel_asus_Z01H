@@ -41,8 +41,8 @@
 #define REL_GREEN	REL_Y
 #define REL_BLUE	REL_Z
 #define REL_WHITE	REL_MISC
-#define CM3323_VDD_MIN_UV	3000000
-#define CM3323_VDD_MAX_UV	3000000
+#define CM3323_VDD_MIN_UV	3300000
+#define CM3323_VDD_MAX_UV	3300000
 #define CM3323_VI2C_MIN_UV	1800000
 #define CM3323_VI2C_MAX_UV	1800000
 static void report_do_work(struct work_struct *w);
@@ -502,6 +502,10 @@ static long rgbsensor_ioctl(struct file *file, unsigned int cmd, unsigned long a
 			
 			switch(asus_project_id)
 				{
+				case ASUS_ZD552KL_PHOENIX://ASUS_ZD552KL_PHOENIX
+					strcpy(modelName,"ZD552KL_PHOENIX");
+					//modelName="ZE553KL";
+					break;
 				case ASUS_ZE553KL://ASUS_ZE553KL
 					strcpy(modelName,"ZE553KL");
 					//modelName="ZE553KL";
@@ -510,13 +514,9 @@ static long rgbsensor_ioctl(struct file *file, unsigned int cmd, unsigned long a
 					strcpy(modelName,"ZS550KL");
 					//modelName="ZS550KL";
 					break;
-				case ASUS_ZD552KL: //ASUS_ZD552KL
-					strcpy(modelName,"ZD552KL");
-					//modelName="ZD552KL";
-					break;
 				default:
-					strcpy(modelName,"ZD552KL");
-					//modelName="ZD552KL";
+					strcpy(modelName,"ZE553KL");
+					//modelName="ZE553KL";
 					break;
 				} 
 
